@@ -17,7 +17,7 @@ defmodule Base1 do
 
     * Using `encode/1` and `decode/1` or `decode!/1` to produce a sequence of repeated "A" characters. This does not scale.
     * Using `encode_length/1` and `decode_length!/1` or `decode_length/1`. This scales better, though is still relatively inefficient. It is much more compact, however and supports larger inputs.
-    * Using `encode_length_bin/1` and `decode_length_bin!/1` or ``decode_length_bin/1`. This scales better, but not as well as pure length encoding due to the string conversion. This exists mostly to provide a convenience for interfaces that need Base1 and expect Elixir binary input and output.
+    * Using `encode_length_bin/1` and `decode_length_bin!/1` or `decode_length_bin/1`. This scales better, but not as well as pure length encoding due to the string conversion. This exists mostly to provide a convenience for interfaces that need Base1 and expect Elixir binary input and output.
 
   ## Resources
 
