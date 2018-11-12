@@ -326,7 +326,7 @@ defmodule Base1 do
 #      _ -> 2_305_843_009_213_693_951
 #    end
 
-    if data_length >= @max_bin_size  do
+    if data_length > @max_bin_size  do
       raise ArgumentError, "Data is too large to binary encode as Base1 #{inspect data_length} bytes are required. Use encode_length/1 and decode_length/1 instead."
     end
     :binary.copy("A", data_length)
