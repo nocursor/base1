@@ -29,6 +29,8 @@ defmodule Base1 do
   """
   @type base1_binary() :: <<_::8>>
 
+  @max_bin_size 4294967295
+
   @doc """
   Encodes a binary as a Base1 string.
 
@@ -319,12 +321,12 @@ defmodule Base1 do
 
     # this is a sloppy patch for now, probably there is better system_info to use or perhaps it's better to check some info about the heap
     # it is probably best to never use base1, but here we are
-    max_bin_size = case :erlang.system_info(:wordsize) do
-      4 -> 536_870_911
-      _ -> 2_305_843_009_213_693_951
-    end
+#    max_bin_size = case :erlang.system_info(:wordsize) do
+#      4 -> 536_870_911
+#      _ -> 2_305_843_009_213_693_951
+#    end
 
-    if data_length >= max_bin_size  do
+    if data_length >= @max_bin_size  do
       raise ArgumentError, "Data is too large to binary encode as Base1 #{inspect data_length} bytes are required. Use encode_length/1 and decode_length/1 instead."
     end
     :binary.copy("A", data_length)
